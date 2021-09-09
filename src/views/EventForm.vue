@@ -38,6 +38,19 @@
         placeholder="Location"
         class="field"
       />
+
+      <h3>Who is ypur organizer?</h3>
+      <label>Select an organizer</label>
+      <select v-model="event.organizer.id">
+        <option
+          v-for="option in GStore.organizers"
+          :value="option.id"
+          :key="option.id"
+          :selected="option.id === event.organizer.id"
+        >
+          {{ option.name }}
+        </option>
+      </select>
       <button type="submit">Submit</button>
     </form>
 
@@ -55,7 +68,8 @@ export default {
         category: '',
         title: '',
         description: '',
-        location: ''
+        location: '',
+        organizer: { id: '', name: '' }
       }
     }
   },
