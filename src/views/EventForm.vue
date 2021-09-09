@@ -2,23 +2,10 @@
   <div>
     <h1>Create an event</h1>
     <form @submit.prevent="saveEvent">
-      <!-- <label>Category</label>
-      <input
-        v-model="event.category"
-        type="text"
-        placeholder="Category"
-        class="field"
-      /> -->
       <BaseInput v-model="event.category" type="text" label="Category" />
       <h3>Name & describe your event</h3>
 
       <label>Title</label>
-      <!-- <input
-        v-model="event.title"
-        type="text"
-        placeholder="Title"
-        class="field"
-      /> -->
       <BaseInput v-model="event.title" type="text" label="Titel" />
 
       <label>Description</label>
@@ -40,7 +27,7 @@
       />
 
       <h3>Who is ypur organizer?</h3>
-      <label>Select an organizer</label>
+      <!-- <label>Select an organizer</label>
       <select v-model="event.organizer.id">
         <option
           v-for="option in GStore.organizers"
@@ -50,7 +37,9 @@
         >
           {{ option.name }}
         </option>
-      </select>
+      </select> -->
+      <BaseSelect :options="GStore.organizers" v-model="event.organizer.id"
+      label="Select an Organizer" />
       <button type="submit">Submit</button>
     </form>
 
